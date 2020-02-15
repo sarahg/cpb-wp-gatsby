@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Cat Party Brewing blog`,
+    description: `Gatsby + WP.`,
+    author: `@sarahg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -25,6 +25,19 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        /*
+         * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
+         * Example : 'dev-gatbsyjswp.pantheonsite.io' or 'www.example-site.com'
+         */
+        baseUrl: `catpartybrewing.party`,
+        protocol: `https`,
+        hostingWPCOM: false,
+        useACF: false,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
