@@ -7,8 +7,6 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="home" />
-      <h1>Cat Party Brewing</h1>
-      <h4>Posts</h4>
       {data.allWordpressPost.edges.map(({ node }) => (
         <div key={node.slug}>
         <Link to={node.slug}>
@@ -23,7 +21,7 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query {
-    allWordpressPost(sort: { fields: [date] }) {
+    allWordpressPost(sort: { fields: [date], order: DESC }) {
       edges {
         node {
           title

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Cat Party Brewing blog`,
+    title: `Cat Party Brewing`,
     description: `Gatsby + WP.`,
     author: `@sarahg`,
   },
