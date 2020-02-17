@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
           <Logos />
         </aside>
 
-        <footer style={{gridRow: `4 / 5`, fontSize: 'small'}}>
+        <footer style={{gridRow: `4 / 5`, fontSize: `small`, padding: `1em 0`}}>
           © {new Date().getFullYear()}, Built with&nbsp;
           <a href="https://www.gatsbyjs.org">Gatsby</a> + <a href="https://wordpress.org">WordPress</a>
           &nbsp;by <a href="https://sarahgerman.com">Sarah German</a>
