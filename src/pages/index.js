@@ -6,13 +6,15 @@ import SEO from "../components/seo"
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO title="home" />
+      <SEO title="Home" />
       {data.allWordpressPost.edges.map(({ node }) => (
-        <div key={node.slug}>
-        <Link to={node.slug}>
-          <p>{node.title}</p>
-        </Link>
-        <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        <div key={node.slug} style={{
+          borderBottom: `1px dotted gray`,
+          marginBottom: `2em`
+        }}>
+          <h3 style={{marginBottom: `.25rem`}}><Link to={node.slug}><span dangerouslySetInnerHTML={{ __html: node.title }} /></Link></h3>
+          <h4 style={{color: `#373F51`, fontSize: `85%`}}>Posted by {node.author.name} on {node.date}</h4>
+          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
       </div>
       ))}
     </Layout>
@@ -21,12 +23,22 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query {
-    allWordpressPost(sort: { fields: [date], order: DESC }) {
+    allWordpressPost(sort: {fields: [date], order: DESC}) {
       edges {
         node {
           title
           excerpt
           slug
+          date(formatString: "MMMM Do, YYYY")
+          tags {
+            name
+          }
+          author {
+            name
+            avatar_urls {
+              wordpress_24
+            }
+          }
         }
       }
     }
