@@ -6,12 +6,10 @@ import SEO from "../components/seo"
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO title="home" />
+      <SEO title="Home" />
       {data.allWordpressPost.edges.map(({ node }) => (
         <div key={node.slug}>
-        <Link to={node.slug}>
-          <p>{node.title}</p>
-        </Link>
+        <h3><Link to={node.slug}><span dangerouslySetInnerHTML={{ __html: node.title }} /></Link></h3>
         <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
       </div>
       ))}

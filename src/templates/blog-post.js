@@ -8,7 +8,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <div>
-        <h1>{post.title}</h1>
+        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     </Layout>
