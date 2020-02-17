@@ -7,15 +7,10 @@ const Header = ({ siteTitle }) => (
     style={{
       background: `#1c8da8`,
       marginBottom: `1.45rem`,
+      gridRow: `1 / 2`,
+      padding: `1em`
     }}
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -27,7 +22,6 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-    </div>
   </header>
 )
 
