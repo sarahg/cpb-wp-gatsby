@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import Header from "./header"
 import Logos from "./logos"
@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
           gridTemplateColumns: `auto 25%`
         }} className="wrapper">
 
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.site.siteMetadata.description} />
 
         <main style={{gridRow: `2 / 3`}}>
             {children}
@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
         <footer style={{gridRow: `4 / 5`, fontSize: `small`, padding: `1em 0`}}>
           © {new Date().getFullYear()}, Built with&nbsp;
           <a href="https://www.gatsbyjs.org">Gatsby</a> + <a href="https://wordpress.org">WordPress</a>
-          &nbsp;by <a href="https://sarahgerman.com">Sarah German</a>
+          &nbsp;by <a href="https://sarahgerman.com">Sarah German</a> | <Link to="about-this-site">About this site</Link>
         </footer>
       </div>
     </>

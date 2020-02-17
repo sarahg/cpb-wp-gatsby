@@ -13,20 +13,46 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const Image = () => {
+const Images = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "catparty-logo-circle.png" }) {
+      cpbLogoImage: file(relativePath: { eq: "catparty-logo-circle.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
           }
         }
       }
+      untappdLogoImage: file(relativePath: { eq: "untappd-logo.png" }) {
+        childImageSharp {
+          fixed(height: 200) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `)
 
-  return <Link to="/"><Img fluid={data.placeholderImage.childImageSharp.fluid} alt="Cat Party Brewing logo" /></Link>
+  return (
+    <div>
+      <Link to="/">
+        <Img
+          fluid={data.cpbLogoImage.childImageSharp.fluid}
+          alt="Cat Party Brewing logo" aria-label="Cat Party Brewing logo"
+        />
+      </Link>
+      <a href="https://untappd.com/CatPartyBrewing" style={{
+        textAlign: `center`,
+        display: `block`,
+        marginTop: `1em`
+      }}>
+        <Img
+          fixed={data.untappdLogoImage.childImageSharp.fixed}
+          alt="Untappd logo" aria-label="Untappd logo"
+        />
+      </a>
+    </div>
+  )
 }
 
-export default Image
+export default Images
