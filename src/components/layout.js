@@ -13,6 +13,8 @@ import Header from "./header"
 import Logos from "./logos"
 
 import "./layout.css"
+import "./posts.css"
+import TagList from "./taglist"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -44,6 +46,7 @@ const Layout = ({ children }) => {
         </main>
         <aside style={{gridRow: `3 / 4`}}>
           <Logos />
+          <TagList />
         </aside>
 
         <footer style={{gridRow: `4 / 5`, fontSize: `small`, padding: `1em 0`}}>

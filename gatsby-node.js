@@ -4,7 +4,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-      allWordpressPost(sort: { fields: [date] }) {
+      posts: allWordpressPost(sort: { fields: [date] }) {
         edges {
           node {
             title
@@ -13,10 +13,19 @@ exports.createPages = ({ graphql, actions }) => {
             slug
           }
         }
+      },
+      tags: allWordpressTag {
+        edges {
+          node {
+            slug
+            name
+          }
+        }
       }
     }
   `).then(result => {
-    result.data.allWordpressPost.edges.forEach(({ node }) => {
+    // Create post pages
+    result.data.posts.edges.forEach(({ node }) => {
       createPage({
         path: node.slug,
         component: path.resolve(`./src/templates/blog-post.js`),
@@ -26,6 +35,18 @@ exports.createPages = ({ graphql, actions }) => {
           slug: node.slug,
         },
       })
+    });
+    // Create tag pages
+    result.data.tags.edges.forEach(({ node }) => {
+      createPage({
+        path: 'tag/' + node.slug,
+        component: path.resolve(`./src/templates/tag.js`),
+        context: {
+          slug: node.slug,
+          name: node.name
+        },
+      })
     })
+
   })
 }

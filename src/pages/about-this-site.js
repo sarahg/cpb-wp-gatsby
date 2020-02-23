@@ -18,7 +18,7 @@ const AboutPage = () => (
     </p>
     <p>
       Code is hosted on GitHub, and upon a merge to the master branch, we trigger a build over on <a href="https://www.gatsbyjs.com/cloud">Gatsby Cloud</a>.
-      Once the build completes, it deploys itself up to <a href="https://www.fastly.com/">Fastly</a>. 
+      Once the build completes, it deploys itself up to <a href="https://www.netlify.com/">Netlify</a>. 
     </p>
     <p>It's a lot of moving parts, but the magic that is Gatsby somehow makes this much easier 
       (and more fun) to work with than vanilla WordPress. Cheers! <span role="img" aria-label="beers emoji">🍻</span></p>

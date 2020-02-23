@@ -13,7 +13,7 @@ export default ({ data }) => {
           marginBottom: `2em`
         }}>
           <h3 style={{marginBottom: `.25rem`}}><Link to={node.slug}><span dangerouslySetInnerHTML={{ __html: node.title }} /></Link></h3>
-          <h4 style={{color: `#373F51`, fontSize: `85%`}}>Posted by {node.author.name} on {node.date}</h4>
+          <h4 className="byline">Posted by {node.author.name} on {node.date}</h4>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
       </div>
       ))}
