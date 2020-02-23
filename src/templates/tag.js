@@ -4,11 +4,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default ({ data, pageContext }) => {
-  console.log(pageContext);
   return (
     <Layout>
       <SEO title={pageContext.name} />
-      <h2>Posts tagged {pageContext.name}</h2>
+      <h2>Posts tagged <span style={{fontWeight:900}}>{pageContext.name}</span></h2>
       {data.allWordpressPost.edges.map(({ node }) => (
         <div
           key={node.slug}
