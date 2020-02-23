@@ -38,6 +38,7 @@ export const pageQuery = graphql`
           node {
             title
             content
+            slug
             date(formatString: "MMMM Do, YYYY")
             tags {
               name
